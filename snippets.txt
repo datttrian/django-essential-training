@@ -26,3 +26,17 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> Notes.objects.filter(text__icontains='Django').exclude(title__icontains='Django')
 <QuerySet [<Notes: Notes object (1)>]>
 >>>
+
+vscode ➜ /workspaces/django-essential-training (main) $ poetry run python manage.py shell
+Python 3.10.13 (main, Oct  4 2023, 17:08:16) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from django.contrib.auth.models import User
+>>> user = User.objects.get(pk=1)
+>>> user
+<User: admin>
+>>> user.notes.count()
+2
+>>> user.notes.all()
+<QuerySet [<Notes: Notes object (2)>, <Notes: Notes object (3)>]>
+>>>
