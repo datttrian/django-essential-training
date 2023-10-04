@@ -15,4 +15,4 @@ Software Developer | Podcaster | Oceanographer
 Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/leticia-portella).
 
 [lil-course-url]: https://www.linkedin.com/learning/django-essential-training
-[lil-thumbnail-url]: https://media.licdn.com/dms/image/D560DAQF9CShQ-6q-XQ/learning-public-crop_288_512/0/1684948662603?e=2147483647&v=beta&t=lpjHwnK4H9Tdn-pwbxBjZZVREBfAM_ubBnRiyi654Kw
+[lil-thumbnail-url]: https://user-images.githubusercontent.com/28540243/200742696-e631d384-f572-4306-8283-0fc456243b82.jpeg
