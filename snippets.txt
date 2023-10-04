@@ -1,3 +1,28 @@
 poetry run python manage.py migrate
 poetry run python manage.py createsuperuser
 poetry run python manage.py runserver
+
+vscode ➜ /workspaces/django-essential-training (main) $ poetry run python manage.py shell
+Python 3.10.13 (main, Oct  4 2023, 17:08:16) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from notes.models import Notes
+>>> mynote = Notes.objects.get(pk='1')
+>>> mynote.title
+'My first Note'
+>>> mynote.text
+'Django is so Amazing!'
+>>> Notes.objects.all()
+<QuerySet [<Notes: Notes object (1)>]>
+>>> new_note = Notes.objects.create(title="A second note", text="This is a second note")
+>>> Notes.objects.all()
+<QuerySet [<Notes: Notes object (1)>, <Notes: Notes object (2)>]>
+>>> Notes.objects.filter(title__startswith="My")
+<QuerySet [<Notes: Notes object (1)>]>
+>>> Notes.objects.filter(text__icontains='Django')
+<QuerySet [<Notes: Notes object (1)>]>
+>>> Notes.objects.exclude(text__icontains='Django')
+<QuerySet [<Notes: Notes object (2)>]>
+>>> Notes.objects.filter(text__icontains='Django').exclude(title__icontains='Django')
+<QuerySet [<Notes: Notes object (1)>]>
+>>>
