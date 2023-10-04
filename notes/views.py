@@ -1,5 +1,6 @@
 from typing import Any
 from django.db.models.query import QuerySet
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from django.http import Http404
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
@@ -27,6 +28,12 @@ class NotesCreateView(CreateView):
     model = Notes
     success_url = '/smart/notes'
     form_class = NotesForm
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
 
 
 class NotesListView(LoginRequiredMixin, ListView):
